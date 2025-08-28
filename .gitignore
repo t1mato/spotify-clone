@@ -1,0 +1,10 @@
+# Environment variables
+.env
+
+
+# Dependencies
+node_modules/
+
+# IDE and OS
+.vscode/
+.DS_Store
