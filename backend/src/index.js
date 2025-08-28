@@ -1,13 +1,16 @@
 import express from "express";
 import dotenv from "dotenv";
 
+import { connectDB } from "./lib/db.js";
+import { clerkMiddleware } from '@clerk/express'
+
 import userRoutes from './routes/user.route.js';
 import authRoutes from './routes/auth.route.js';
 import adminRoutes from './routes/admin.route.js';
 import songRoutes from './routes/song.route.js';
 import albumRoutes from './routes/album.route.js';
 import statRoutes from './routes/stat.route.js';
-import { connectDB } from "./lib/db.js";
+
 
 dotenv.config();
 
@@ -15,6 +18,8 @@ const app = express();
 const PORT = process.env.PORT
 
 app.use(express.json()); // to parse req.body
+
+app.use(clerkMiddleware()); // this will add auth to req object => req.auth
 
 // Route for users
 app.use("/api/users", userRoutes);

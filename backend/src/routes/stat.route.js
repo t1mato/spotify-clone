@@ -6,4 +6,4 @@ router.get('/', (req, res) => {
     res.send('Stat route with GET method');
 })
 
-export default router
+export default router;
