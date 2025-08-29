@@ -15,11 +15,11 @@ export const requireAdmin = async (req, res, next) => {
         const isAdmin = process.env.ADMIN_EMAIL === currentUser.primaryEmailAddress?.emailAddress;
 
         if(!isAdmin) {
-            res.status(403).json({ message: "Unauthorized - you must be an admin" })
+            res.status(403).json({ message: "Unauthorized - you must be an admin" }) // 403 = Insufficient permissions
         }
 
         next();
     } catch (error) {
-        return res.status(500).json({ message: "Internal server error", error });
+        next(error);
     }
 }
