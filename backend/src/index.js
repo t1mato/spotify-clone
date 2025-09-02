@@ -50,11 +50,13 @@ app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
 // error handler
-ap.use((err, req, res, next) => {
+app.use((err, req, res, next) => {
     res.status(500).json({ message: process.env.NODE_ENV === "production" ? "Internal servor error" : err.message });
 })
 
 app.listen(PORT, () => {
     console.log("Server is running on port " + PORT);
     connectDB();
-})
+});
+
+// todo: socket.io
