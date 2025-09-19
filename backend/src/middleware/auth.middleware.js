@@ -1,4 +1,4 @@
-import { clerkClient } from "@clerk/express";
+import { clerkClient, createClerkClient } from "@clerk/express";
 
 export const protectRoute = async (req, res, next) => {
     if(!req.auth.userId) {

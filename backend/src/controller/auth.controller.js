@@ -1,6 +1,7 @@
 import { User } from "../models/user.model.js"
 
 export const authCallback = async (req, res, next) => {
+    console.log("Incoming /auth/callback body:", req.body);
     try {
         const { id, firstName, lastName, imageUrl } = req.body;
 
@@ -14,7 +15,7 @@ export const authCallback = async (req, res, next) => {
                 fullName: `${firstName} ${lastName}`,
                 imageUrl
             })
-        }
+        } 
 
         res.status(200).json({success: true})
     } catch (error) {

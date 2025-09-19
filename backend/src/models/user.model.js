@@ -18,3 +18,5 @@ const userSchema = new mongoose.Schema({
 // createdAt, updatedAt
 
 export const User = mongoose.model("User", userSchema);
+
+console.log("User model will use this collection:", User.collection.name);
